@@ -36,7 +36,7 @@ int main() {
 
     TEST (Stack, PopFromEmptyStack) {
         Stack s;
-        Stack.value_type a == s.pop();
+        Stack::value_type a == s.pop();
     }
 
     return 0;
