@@ -32,4 +32,5 @@
 *.includes
 *.files
 *.creator
+*.creator.user
 *.config
