@@ -16,8 +16,6 @@
 #define TEST( what, case ) \
     printf("Processing test %s at object %s", case, what);
 
-
-
 int main() {
     TEST (Stack, PushSingleNumber) {
         Stack s;
