@@ -23,7 +23,7 @@
         assert(!"Object is not ok!"); \
     }
 
-const std::string m_dump_file = "stack_dump.txt";
+const std::string Stack::m_dump_file = "stack_dump.txt";
 
 Stack::Stack():
     m_size(0) {
@@ -111,7 +111,6 @@ bool Stack::ok() const {
 void Stack::dump() const {
     std::ofstream dump_file;
     dump_file.open(m_dump_file, std::ios::app);
-
     if (dump_file.is_open()) {
         auto t = std::time(nullptr);
         auto tm = *std::localtime(&t);

@@ -79,7 +79,7 @@ public:
 private:
     static const std::size_t m_capacity = 6;
     static const std::size_t POISON_INT = m_capacity + 1;
-    static const std::string dump_file;
+    static const std::string m_dump_file;
     std::size_t m_size;
     value_type m_data[m_capacity];
 
