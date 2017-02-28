@@ -41,6 +41,7 @@
 void PushSingleNumber();
 void CannotPushMore();
 void TopFromEmptyStack();
+void PopFromEmptyStack();
 void PrintTest();
 void DumpTest();
 
@@ -48,6 +49,7 @@ int main() {
     TEST (Stack, PushSingleNumber);
     TEST (Stack, CannotPushMore);
     TEST (Stack, TopFromEmptyStack);
+    TEST (Stack, PopFromEmptyStack);
     TEST (Stack, PrintTest);
     TEST (Stack, DumpTest);
     return 0;
@@ -72,6 +74,11 @@ void CannotPushMore() {
 void TopFromEmptyStack() {
     Stack s;
     Stack::value_type a = s.top();
+}
+
+void PopFromEmptyStack() {
+    Stack s;
+    s.pop();
 }
 
 void PrintTest() {
