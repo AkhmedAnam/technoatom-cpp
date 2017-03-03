@@ -10,8 +10,7 @@ class Array {
 
     explicit Array(std::size_t size);
     ~Array();
-    Array(const Array& that) = delete;
-    const Array& operator=(const Array& that) = delete;
+    Array(const Array& that);
 
     //! Returns a reference to the element at specified locationpos,
     //! with bounds checking.
