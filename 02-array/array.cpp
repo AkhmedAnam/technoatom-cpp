@@ -17,6 +17,14 @@ Array::~Array() {
   m_data = nullptr;
 }
 
+Array::Array(const Array& that):
+  m_size(that.m_size),
+  m_data(new value_type[that.m_size]) {
+  for (std::size_t i = 0; i < m_size; i++) {
+    m_data[i] = that[i];
+  }
+}
+
 Array::value_type& Array::operator[](const std::size_t pos) const {
   if (pos >= m_size) {
     throw std::out_of_range(OUT_OF_RANGE_EXC_TEXT);

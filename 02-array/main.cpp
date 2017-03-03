@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array>
 
-#include <array.h>
+#include "array.h"
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -18,7 +18,11 @@ int main(int argc, char *argv[])
     cout << a[i] << endl;
   }
 
-  cout << a[6] << endl;
-
+  try{
+	cout << a[6] << endl;
+  }
+  catch(exception & ex){
+	  cout << ex.what() << endl;
+  }
   return 0;
 }
