@@ -10,8 +10,11 @@ class Array {
 
     explicit Array(std::size_t size);
     ~Array();
-    Array(const Array& that) = delete;
-    const Array& operator=(const Array& that) = delete;
+    Array(const Array& that);
+
+	//! Overwriting operator peforms copy-swap idiom by using friend function swap
+	//! 
+    const Array& operator=(const Array& that);
 
     //! Returns a reference to the element at specified locationpos,
     //! with bounds checking.
@@ -58,11 +61,16 @@ class Array {
     //! @param value is the value to assign to the elements
     void fill(const value_type& value);
 
-    //! Exchanges the contents of the array with those of other.
-    //! Does not cause references to associate with the other array.
-    //!
-    //! @param that is array to exchange the contents with
-    void swap(const Array& that);
+    //! Exchanges the contents of the two arrays.
+    //! This method part of the copy-swap idiom that is used in
+    //! overwritten assignment operator. 
+	//! @param first is first of arrays to be exchanged
+    //! @param second is second of arrays to be exchanged
+	friend void swap(Array& first, Array& second) {
+		using std::swap;
+		swap(first.m_size, second.m_size);
+		swap(first.m_data, second.m_data);
+	}
 
   private:
     static const std::string OUT_OF_RANGE_EXC_TEXT;

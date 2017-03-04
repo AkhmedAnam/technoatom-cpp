@@ -12,9 +12,20 @@ Array::Array(std::size_t size):
   m_data(new value_type[size]) {
 }
 
+Array::Array(const Array& that) {
+
+}
+
 Array::~Array() {
   delete[] m_data;
   m_data = nullptr;
+}
+
+//Perfoms copy-swap idiom
+const Array& Array::operator=(const Array& other) {
+	Array temp_arr(other);
+	swap(*this, temp_arr);
+	return *this;
 }
 
 Array::value_type& Array::operator[](const std::size_t pos) const {
@@ -52,8 +63,4 @@ void Array::fill(const Array::value_type &value) {
   for (std::size_t i = 0; i < size(); i++) {
     m_data[i] = value;
   }
-}
-
-void Array::swap(const Array &that) {
-
 }
