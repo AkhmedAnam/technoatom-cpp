@@ -11,9 +11,9 @@ class Array {
     explicit Array(std::size_t size);
     ~Array();
     Array(const Array& that);
-
-	//! Overwriting operator peforms copy-swap idiom by using friend function swap
-	//! 
+  
+	  //! Overwriting operator peforms copy-swap idiom by using friend function swap
+	  //! 
     const Array& operator=(const Array& that);
 
     //! Returns a reference to the element at specified locationpos,

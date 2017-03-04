@@ -12,10 +12,6 @@ Array::Array(std::size_t size):
   m_data(new value_type[size]) {
 }
 
-Array::Array(const Array& that) {
-
-}
-
 Array::~Array() {
   delete[] m_data;
   m_data = nullptr;
@@ -26,6 +22,14 @@ const Array& Array::operator=(const Array& other) {
 	Array temp_arr(other);
 	swap(*this, temp_arr);
 	return *this;
+}
+
+Array::Array(const Array& that):
+  m_size(that.m_size),
+  m_data(new value_type[that.m_size]) {
+  for (std::size_t i = 0; i < m_size; i++) {
+    m_data[i] = that[i];
+  }
 }
 
 Array::value_type& Array::operator[](const std::size_t pos) const {

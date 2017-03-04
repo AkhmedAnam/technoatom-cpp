@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array>
 
-#include <array.h>
+#include "array.h"
 using namespace std;
 
 void Print_Ava_Array(const ava::Array to_print, char* header_message) {
@@ -45,7 +45,11 @@ int main(int argc, char *argv[])
 	  Print_Ava_Array(third, "Third array. Formula: arr[i] = 5 * i\n\n");
   }
 
-  cout << a[6] << endl;
-
+  try{
+	cout << a[6] << endl;
+  }
+  catch(exception & ex){
+	  cout << ex.what() << endl;
+  }
   return 0;
 }
